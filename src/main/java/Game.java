@@ -15,4 +15,6 @@ public class Game {
         new Game();
     }
 
+    public void start() {
+    }
 }
