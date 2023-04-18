@@ -10,7 +10,7 @@ public class Menu extends JFrame implements ActionListener {
         super("Menu");
 
         // Configuración de la ventana
-        setSize(400, 300);
+        setSize(500, 500);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -21,6 +21,7 @@ public class Menu extends JFrame implements ActionListener {
         // Configuración de los botones
         button1.addActionListener(this);
         button2.addActionListener(this);
+
 
         // Creación del panel de contenido
         JPanel contentPane = new JPanel();

@@ -2,14 +2,14 @@ import java.util.ArrayList;
 
 public class Handler {
 
-    private ArrayList<Cell> current = new ArrayList<Cell>();
-    private ArrayList<Cell> queue = new ArrayList<Cell>();
+    private final ArrayList<Cell> current = new ArrayList<Cell>();
+    private final ArrayList<Cell> queue = new ArrayList<Cell>();
 
     private static int flaggedCells = 0;
 
     public void click(Cell cell) {
         int discoveredCells = 0;
-        if (!cell.isFlagged()) {
+        if (cell.isFlagged()) {
             cell.setEnabled(false);
             cell.setDiscovered(true);
 
@@ -138,10 +138,10 @@ public class Handler {
                 cell.setText("*");
             }
 
-            for (int x = 0; x < queue.size(); x++) {
-                if (!queue.get(x).isDiscovered()) {
-                    current.add(queue.get(x));
-                    queue.get(x).setDiscovered(true);
+            for (Cell value : queue) {
+                if (!value.isDiscovered()) {
+                    current.add(value);
+                    value.setDiscovered(true);
                 }
             }
             queue.clear();
@@ -173,7 +173,7 @@ public class Handler {
 
     public void rightClick(Cell cell) {
         if (!cell.isDiscovered()) {
-            if (!cell.isFlagged()) {
+            if (cell.isFlagged()) {
                 cell.setFlagged(true);
                 cell.setText("F");
                 flaggedCells++;
